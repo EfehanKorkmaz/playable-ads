@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Playable Ads Portfolio</title>
-<meta name="description" content="Lightweight HTML5 playable ads for mobile games: single-file builds for AppLovin, Unity, Meta, Google, Mintegral, TikTok, Liftoff and Moloco.">
+<meta name="description" content="Lightweight HTML5 playable ads for mobile games: two playable samples with single-file builds for AppLovin, Unity, Meta, Google, Mintegral, TikTok, Liftoff and Moloco.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;800&family=Inter:wght@400;600&family=JetBrains+Mono:wght@500&display=swap">
@@ -95,7 +95,17 @@
 
   .wide { display: grid; gap: 16px; }
   .wide .device { max-width: 748px; }
+  .wide-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 12px; max-width: 748px; }
+  .wide-head h2 { font-size: 26px; font-weight: 800; }
+  .switch { display: flex; gap: 6px; }
+  .switch button {
+    font: 600 14px/1 var(--font-body); color: var(--ink); background: var(--surface); border: 1px solid var(--rule); border-radius: 999px; padding: 9px 14px; cursor: pointer;
+  }
+  .switch button[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
   @media (max-width: 860px) { .wide { display: none; } }
+  .builds { display: grid; gap: 12px; }
+  .builds h2 { font-size: 26px; font-weight: 800; }
+  .builds table { min-width: 600px; }
 
   .process { display: grid; gap: 20px; }
   .process h2 { font-size: 26px; font-weight: 800; }
@@ -109,7 +119,7 @@
 <link rel="canonical" href="https://efehankorkmaz.github.io/playable-ads/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Playable Ads Portfolio">
-<meta property="og:description" content="Lightweight HTML5 playable ads for mobile games: single-file builds for AppLovin, Unity, Meta, Google, Mintegral, TikTok, Liftoff and Moloco.">
+<meta property="og:description" content="Lightweight HTML5 playable ads for mobile games: two playable samples with single-file builds for AppLovin, Unity, Meta, Google, Mintegral, TikTok, Liftoff and Moloco.">
 <meta property="og:url" content="https://efehankorkmaz.github.io/playable-ads/">
 <meta property="og:image" content="https://efehankorkmaz.github.io/playable-ads/og-image.png">
 <meta property="og:image:width" content="1280">
@@ -122,16 +132,40 @@
   <header>
     <p class="eyebrow">HTML5 playable ads</p>
     <h1>Playables that load in a blink and pass network review</h1>
-    <p class="lede">Short interactive ads for mobile games. One source, a separate build for every ad network, a clear hook in the first two seconds and an end card with a single call to action.</p>
+    <p class="lede">Short interactive ads for mobile games. One source, a separate build for every ad network, a clear hook in the first two seconds and an end card with a single call to action. Two samples below, both playable right here.</p>
     <ul class="nets" aria-label="Supported networks">
       <li>AppLovin</li><li>Unity Ads</li><li>Meta</li><li>Google Ads</li><li>Mintegral</li><li>TikTok / Pangle</li><li>Liftoff</li><li>Moloco</li>
     </ul>
   </header>
 
+  <section class="showcase" aria-labelledby="ss-title">
+    <figure class="device portrait">
+      <iframe id="p2" src="sweet-shelf.html" title="Sweet Shelf playable, portrait"></iframe>
+      <figcaption><span>Portrait · drag to play</span><button type="button" data-reload="p2">Restart</button></figcaption>
+    </figure>
+    <div class="sheet">
+      <div>
+        <h2 id="ss-title">Sweet Shelf</h2>
+        <p>A triple-match sort in a bakery display. Drag a treat to another shelf; three of a kind sell out. Every shelf hides a second row, and clearing the front brings it forward, so one good move often sets up the next.</p>
+      </div>
+      <dl class="facts">
+        <div><dt>Genre</dt><dd>Triple-match sort</dd></div>
+        <div><dt>Input</dt><dd>Drag and drop, or tap and tap</dd></div>
+        <div><dt>Length</dt><dd>About 25 s, 40 s timer</dd></div>
+        <div><dt>Largest build</dt><dd>55.9 KB</dd></div>
+      </dl>
+      <ul class="inside">
+        <li>The hand drags the first match; idle players get a hint, and TikTok builds play on their own</li>
+        <li>Combo callouts and a "SOLD OUT!" finish, or a "So close!" card when time runs out</li>
+        <li>The hint looks two moves ahead, so auto-play always reaches the win</li>
+      </ul>
+    </div>
+  </section>
+
   <section class="showcase" aria-labelledby="ls-title">
     <figure class="device portrait">
-      <iframe id="p" src="laundry-sort.html" title="Laundry Sort playable, portrait"></iframe>
-      <figcaption><span>Portrait · tap to play</span><button type="button" id="restart-p" data-reload="p">Restart</button></figcaption>
+      <iframe id="p1" src="laundry-sort.html" title="Laundry Sort playable, portrait" loading="lazy"></iframe>
+      <figcaption><span>Portrait · tap to play</span><button type="button" data-reload="p1">Restart</button></figcaption>
     </figure>
     <div class="sheet">
       <div>
@@ -140,46 +174,54 @@
       </div>
       <dl class="facts">
         <div><dt>Genre</dt><dd>Sorting puzzle</dd></div>
+        <div><dt>Input</dt><dd>Tap</dd></div>
         <div><dt>Length</dt><dd>15–30 s, then end card</dd></div>
-        <div><dt>Orientation</dt><dd>Portrait + landscape</dd></div>
-        <div><dt>Largest build</dt><dd>59.9 KB</dd></div>
+        <div><dt>Largest build</dt><dd>61.8 KB</dd></div>
       </dl>
-      <div>
-        <h3>Builds and network size limits</h3>
-        <div class="table-scroll">
-          <table>
-            <thead><tr><th>Network</th><th>Package</th><th>Size</th><th>Share of the limit</th></tr></thead>
-            <tbody>
-              <tr><td>AppLovin</td><td>HTML · MRAID 2.0</td><td class="mono">59.9 KB</td><td><span class="budget"><span class="meter"><span style="width:1.17%"></span></span><small>1.2% of 5.00 MB</small></span></td></tr>
-              <tr><td>Unity Ads</td><td>index.html · MRAID 3.0</td><td class="mono">59.9 KB</td><td><span class="budget"><span class="meter"><span style="width:1.17%"></span></span><small>1.2% of 5.00 MB</small></span></td></tr>
-              <tr><td>Meta</td><td>HTML · FbPlayableAd</td><td class="mono">59.5 KB</td><td><span class="budget"><span class="meter"><span style="width:2.91%"></span></span><small>2.9% of 2.00 MB</small></span></td></tr>
-              <tr><td>Google Ads</td><td>ZIP · ExitApi</td><td class="mono">22.4 KB</td><td><span class="budget"><span class="meter"><span style="width:0.44%"></span></span><small>0.4% of 5.00 MB</small></span></td></tr>
-              <tr><td>Mintegral</td><td>ZIP</td><td class="mono">22.5 KB</td><td><span class="budget"><span class="meter"><span style="width:0.44%"></span></span><small>0.4% of 5.00 MB</small></span></td></tr>
-              <tr><td>TikTok / Pangle</td><td>ZIP · config.json</td><td class="mono">22.5 KB</td><td><span class="budget"><span class="meter"><span style="width:0.44%"></span></span><small>0.4% of 5.00 MB</small></span></td></tr>
-              <tr><td>Liftoff</td><td>HTML · MRAID</td><td class="mono">59.9 KB</td><td><span class="budget"><span class="meter"><span style="width:1.17%"></span></span><small>1.2% of 5.00 MB</small></span></td></tr>
-              <tr><td>Moloco</td><td>HTML</td><td class="mono">59.5 KB</td><td><span class="budget"><span class="meter"><span style="width:1.16%"></span></span><small>1.2% of 5.00 MB</small></span></td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div>
-        <h3>Inside the playable</h3>
-        <ul class="inside">
-          <li>A hand shows the first move; idle players get hints, and TikTok builds advance on their own</li>
-          <li>The call to action appears only after the player has touched the game</li>
-          <li>Sound stays off until the first tap and stops when the ad isn't on screen</li>
-          <li>Art is drawn in code, so nothing loads from the network</li>
-          <li>Top and bottom edges stay clear for each network's close and skip controls</li>
-        </ul>
-      </div>
+      <ul class="inside">
+        <li>A hand shows the first move; the basket warns before it fills up</li>
+        <li>A short twist at the end: the pink load is the moment people remember</li>
+      </ul>
     </div>
   </section>
 
-  <section class="wide" aria-label="Landscape version">
+  <section class="wide" aria-labelledby="wide-title">
+    <div class="wide-head">
+      <h2 id="wide-title">Landscape, same builds</h2>
+      <div class="switch" role="group" aria-label="Sample">
+        <button type="button" data-src="sweet-shelf.html" aria-pressed="true">Sweet Shelf</button>
+        <button type="button" data-src="laundry-sort.html" aria-pressed="false">Laundry Sort</button>
+      </div>
+    </div>
     <figure class="device landscape">
-      <iframe id="l" src="laundry-sort.html" title="Laundry Sort playable, landscape" loading="lazy"></iframe>
-      <figcaption><span>Landscape · same build</span><button type="button" id="restart-l" data-reload="l">Restart</button></figcaption>
+      <iframe id="l" src="sweet-shelf.html" title="Playable in landscape" loading="lazy"></iframe>
+      <figcaption><span>Landscape · the layout adapts, nothing is cropped</span><button type="button" data-reload="l">Restart</button></figcaption>
     </figure>
+  </section>
+
+  <section class="builds" aria-labelledby="builds-title">
+    <h2 id="builds-title">Builds and network size limits</h2>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Network</th><th>Package</th><th>Sweet Shelf</th><th>Laundry Sort</th><th>Share of the limit</th></tr></thead>
+        <tbody>
+          <tr><td>AppLovin</td><td>HTML · MRAID 2.0</td><td class="mono">55.9 KB</td><td class="mono">61.8 KB</td><td><span class="budget"><span class="meter"><span style="width:1.21%"></span></span><small>1.2% of 5.00 MB</small></span></td></tr>
+          <tr><td>Unity Ads</td><td>index.html · MRAID 3.0</td><td class="mono">55.8 KB</td><td class="mono">61.8 KB</td><td><span class="budget"><span class="meter"><span style="width:1.21%"></span></span><small>1.2% of 5.00 MB</small></span></td></tr>
+          <tr><td>Meta</td><td>HTML · FbPlayableAd</td><td class="mono">55.4 KB</td><td class="mono">61.4 KB</td><td><span class="budget"><span class="meter"><span style="width:3.00%"></span></span><small>3.0% of 2.00 MB</small></span></td></tr>
+          <tr><td>Google Ads</td><td>ZIP · ExitApi</td><td class="mono">20.7 KB</td><td class="mono">22.9 KB</td><td><span class="budget"><span class="meter"><span style="width:0.45%"></span></span><small>0.4% of 5.00 MB</small></span></td></tr>
+          <tr><td>Mintegral</td><td>ZIP</td><td class="mono">20.8 KB</td><td class="mono">23.0 KB</td><td><span class="budget"><span class="meter"><span style="width:0.45%"></span></span><small>0.5% of 5.00 MB</small></span></td></tr>
+          <tr><td>TikTok / Pangle</td><td>ZIP · config.json</td><td class="mono">20.8 KB</td><td class="mono">23.0 KB</td><td><span class="budget"><span class="meter"><span style="width:0.45%"></span></span><small>0.4% of 5.00 MB</small></span></td></tr>
+          <tr><td>Liftoff</td><td>HTML · MRAID</td><td class="mono">55.9 KB</td><td class="mono">61.8 KB</td><td><span class="budget"><span class="meter"><span style="width:1.21%"></span></span><small>1.2% of 5.00 MB</small></span></td></tr>
+          <tr><td>Moloco</td><td>HTML</td><td class="mono">55.4 KB</td><td class="mono">61.4 KB</td><td><span class="budget"><span class="meter"><span style="width:1.20%"></span></span><small>1.2% of 5.00 MB</small></span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <ul class="inside">
+      <li>The call to action appears only after the player has touched the game</li>
+      <li>Sound stays off until the first tap and stops when the ad isn't on screen</li>
+      <li>Art is drawn in code, so nothing loads from the network</li>
+      <li>Top and bottom edges stay clear for each network's close and skip controls</li>
+    </ul>
   </section>
 
   <section class="process" aria-labelledby="how">
@@ -199,6 +241,13 @@
     b.addEventListener('click', function () {
       var f = document.getElementById(b.getAttribute('data-reload'));
       f.src = f.getAttribute('src');
+    });
+  });
+  var wide = document.getElementById('l');
+  document.querySelectorAll('.switch button').forEach(function (b, _, all) {
+    b.addEventListener('click', function () {
+      all.forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+      wide.setAttribute('src', b.getAttribute('data-src'));
     });
   });
 </script>
